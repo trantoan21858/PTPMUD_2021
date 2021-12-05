@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyStories</string>
+    <string name="home">Trang chủ</string>
+    <string name="category">Thể loại</string>
+    <string name="personal">Cá nhân</string>
+    <string name="search">Tìm kiếm</string>
+</resources>
