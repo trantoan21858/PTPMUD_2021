@@ -4,20 +4,44 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+import org.at15.mystories.data.model.NovelModel;
+import org.at15.mystories.data.repository.novels.NovelFilter;
+import org.at15.mystories.data.repository.novels.NovelsRepository;
 
-    private MutableLiveData<String> mText;
+import java.util.ArrayList;
+import java.util.List;
 
-    public HomeViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+public class HomeViewModel extends ViewModel implements NovelsRepository.LoadNovelsCallback{
+
+    public MutableLiveData<List<AllSugesstionAdapter.SuggesstionGroup>> getData() {
+        return mData;
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    private final MutableLiveData<List<AllSugesstionAdapter.SuggesstionGroup>> mData
+            = new MutableLiveData<List<AllSugesstionAdapter.SuggesstionGroup>>();
+
+    private final NovelsRepository mRepository;
+
+    public HomeViewModel(NovelsRepository repository) {
+        this.mRepository = repository;
     }
 
-    public void setText(String text) {
-        mText.setValue(text);
+    @Override
+    public void onLoadError() {
+
+    }
+
+    @Override
+    public void onLoadSuccess(List<NovelModel> novels) {
+        List<AllSugesstionAdapter.SuggesstionGroup> data = new ArrayList<>();
+        data.add(new AllSugesstionAdapter.SuggesstionGroup("Truyện mới", novels));
+        data.add(new AllSugesstionAdapter.SuggesstionGroup("Truyện hot", novels));
+        data.add(new AllSugesstionAdapter.SuggesstionGroup("Truyện full", novels));
+        data.add(new AllSugesstionAdapter.SuggesstionGroup("Truyện mới cập nhật", novels));
+        mData.postValue(data);
+    }
+
+    public void loadSuggestions() {
+        mRepository.getNovels(this, new NovelFilter());
     }
 }

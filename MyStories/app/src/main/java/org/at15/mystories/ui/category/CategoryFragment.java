@@ -1,5 +1,6 @@
 package org.at15.mystories.ui.category;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,9 +14,11 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.at15.mystories.ListNovelsActivity;
 import org.at15.mystories.R;
 import org.at15.mystories.data.DataManager;
 import org.at15.mystories.data.model.CategoryModel;
+import org.at15.mystories.ui.list_novels.ListNovelFragment;
 
 import java.util.List;
 
@@ -49,6 +52,8 @@ public class CategoryFragment extends Fragment implements ListCategoryAdapter.It
 
     @Override
     public void onClick(CategoryModel category) {
-
+        Intent intent = new Intent(requireContext(), ListNovelsActivity.class);
+        intent.putExtra("title",category.getTitle());
+        startActivity(intent);
     }
 }

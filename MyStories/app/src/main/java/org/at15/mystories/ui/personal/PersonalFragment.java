@@ -13,12 +13,19 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.ListFragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.viewpager2.widget.ViewPager2;
+
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 import org.at15.mystories.R;
 import org.at15.mystories.ui.home.HomeFragment;
 import org.at15.mystories.ui.list_novels.ListNovelFragment;
 
 public class PersonalFragment extends Fragment {
+
+    PersonalViewPagerAdapter demoCollectionAdapter;
+    ViewPager2 viewPager;
 
     private PersonalViewModel notificationsViewModel;
 
@@ -27,16 +34,20 @@ public class PersonalFragment extends Fragment {
         notificationsViewModel =
                 new ViewModelProvider(this).get(PersonalViewModel.class);
         View root = inflater.inflate(R.layout.fragment_personal, container, false);
-        final Button button = root.findViewById(R.id.click_button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                requireActivity().getSupportFragmentManager().beginTransaction()
-                        .add(R.id.container, ListNovelFragment.newInstance())
-                        .addToBackStack(null)
-                        .commit();
-            }
-        });
         return root;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        viewPager = view.findViewById(R.id.pager);
+        viewPager.setAdapter(new PersonalViewPagerAdapter(this));
+        TabLayout tabLayout = view.findViewById(R.id.tab_layout);
+        new TabLayoutMediator(tabLayout, viewPager,
+                (tab, position) -> {
+                    tab.setIcon(R.drawable.ic_bookmark);
+                    tab.setText("Đang đọc");
+                }
+        ).attach();
     }
 }

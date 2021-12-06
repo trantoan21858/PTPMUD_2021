@@ -7,8 +7,7 @@
     tools:context=".ui.search.SearchFragment">
 
     <androidx.appcompat.widget.SearchView
-        android:background="@color/primaryColor"
-        android:elevation="1dp"
+        android:theme="@style/Theme.MyStories"
         android:id="@+id/search_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

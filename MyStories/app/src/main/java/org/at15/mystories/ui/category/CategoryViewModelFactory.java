@@ -8,7 +8,7 @@ import org.at15.mystories.data.repository.categories.CategoryRepository;
 
 public class CategoryViewModelFactory implements ViewModelProvider.Factory {
 
-    private CategoryRepository mRepository;
+    private final CategoryRepository mRepository;
 
     public CategoryViewModelFactory(CategoryRepository repository) {
         this.mRepository = repository;

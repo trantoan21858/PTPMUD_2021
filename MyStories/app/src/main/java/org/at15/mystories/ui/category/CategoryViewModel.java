@@ -1,6 +1,5 @@
 package org.at15.mystories.ui.category;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -11,7 +10,8 @@ import java.util.List;
 
 public class CategoryViewModel extends ViewModel implements CategoryRepository.LoadCategoryCallback {
 
-    private final MutableLiveData<List<CategoryModel>> mListCategoryLiveData = new MutableLiveData<>();
+    private final MutableLiveData<List<CategoryModel>> mListCategoryLiveData
+            = new MutableLiveData<List<CategoryModel>>();
 
     private final CategoryRepository mRepository;
 

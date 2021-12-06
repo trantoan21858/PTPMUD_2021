@@ -2,6 +2,9 @@ package org.at15.mystories.data;
 
 import org.at15.mystories.data.repository.categories.CategoryRepository;
 import org.at15.mystories.data.repository.categories.CategoryRepositoryImplForTest;
+import org.at15.mystories.data.repository.novels.NovelsRepository;
+import org.at15.mystories.data.repository.novels.NovelsRepositoryImpl;
+import org.at15.mystories.data.repository.novels.NovelsRepositoryImplForTest;
 
 public class DataManager {
 
@@ -19,5 +22,9 @@ public class DataManager {
 
     public CategoryRepository getCategoryRepository() {
         return CategoryRepositoryImplForTest.getInstane();
+    }
+
+    public NovelsRepository getNovelsRepository() {
+        return NovelsRepositoryImplForTest.getInstane();
     }
 }
