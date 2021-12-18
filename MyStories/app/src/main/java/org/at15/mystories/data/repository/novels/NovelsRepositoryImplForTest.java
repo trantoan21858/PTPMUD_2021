@@ -3,7 +3,9 @@ package org.at15.mystories.data.repository.novels;
 import org.at15.mystories.data.model.NovelModel;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class NovelsRepositoryImplForTest implements NovelsRepository {
 
@@ -83,4 +85,32 @@ public class NovelsRepositoryImplForTest implements NovelsRepository {
         ));
         callback.onLoadSuccess(list);
     }
+
+    @Override
+    public void getSuggestNovelsHomepage(SuggestNovelHomepage callback) {
+        Map<String, List<NovelModel>> map = new HashMap<String, List<NovelModel>>();
+
+        ArrayList<NovelModel> list1 = new ArrayList<>();
+        list1.add(new NovelModel(
+                "1",
+                "Chọc Tức Vợ Yêu - Mua Một Tặng Một",
+                "https://sstruyen.com/assets/img/story//xchoc-tuc-vo-yeu-mua-mot-tang-mot.1576255802.jpg.pagespeed.ic.ewNvhhjnc4.webp"
+        ));
+        map.put("Truyện hot", list1);
+
+        ArrayList<NovelModel> list2 = new ArrayList<>();
+        list2.add(new NovelModel(
+                "2",
+                "Dẫu Ngươi Là Phế Vật FULL",
+                "https://sstruyen.com/assets/img/story//xdau_nguoi_la_phe_vat.1639535192.jpg.pagespeed.ic.ZYasx-kzzZ.webp"
+        ));
+        map.put("Truyện full", list2);
+        callback.onLoadSuccess(map);
+    }
+
+    @Override
+    public void getNovelDetail(String novelId, LoadDetailCallback callback) {
+
+    }
+
 }

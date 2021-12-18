@@ -6,4 +6,14 @@ public class NovelsRepositoryImpl implements NovelsRepository {
     public void getNovels(LoadNovelsCallback callback, NovelFilter filter) {
 
     }
+
+    @Override
+    public void getSuggestNovelsHomepage(SuggestNovelHomepage callback) {
+
+    }
+
+    @Override
+    public void getNovelDetail(String novelId, LoadDetailCallback callback) {
+
+    }
 }

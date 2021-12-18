@@ -2,22 +2,24 @@ package org.at15.mystories.ui.list_novels;
 
 import androidx.lifecycle.Observer;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.at15.mystories.ui.novel_detail.NovelDetailActivity;
 import org.at15.mystories.R;
-import org.at15.mystories.data.DataManager;
 import org.at15.mystories.data.model.NovelModel;
 
 import java.util.List;
@@ -33,10 +35,9 @@ public class ListNovelFragment extends Fragment implements ListNovelAdapter.Item
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+        Log.d("TOÀN","ListNovelFragment onCreateView");
         View root=  inflater.inflate(R.layout.fragment_list_novel, container, false);
-        ListNovelViewModelFactory factory
-                = new ListNovelViewModelFactory(DataManager.get().getNovelsRepository());
-        mViewModel = ViewModelProviders.of(this,factory).get(ListNovelViewModel.class);
+        mViewModel = new ViewModelProvider(requireActivity()).get(ListNovelViewModel.class);
         final RecyclerView recyclerView= root.findViewById(R.id.list_story);
         ListNovelAdapter novelAdapter = new ListNovelAdapter(this);
         recyclerView.setAdapter(novelAdapter);
@@ -59,6 +60,9 @@ public class ListNovelFragment extends Fragment implements ListNovelAdapter.Item
 
     @Override
     public void onClick(NovelModel novel) {
-
+        Intent intent = new Intent(requireActivity(), NovelDetailActivity.class);
+        intent.putExtra("title",novel.getName());
+        intent.putExtra("image_url",novel.getImageUrl());
+        startActivity(intent);
     }
 }

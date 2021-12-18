@@ -1,5 +1,7 @@
 package org.at15.mystories.ui.list_novels;
 
+import android.util.Log;
+
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 

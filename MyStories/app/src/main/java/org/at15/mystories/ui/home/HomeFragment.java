@@ -8,13 +8,13 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.at15.mystories.ListNovelsActivity;
+import org.at15.mystories.ui.list_novels.ListNovelsActivity;
+import org.at15.mystories.ui.novel_detail.NovelDetailActivity;
 import org.at15.mystories.R;
 import org.at15.mystories.data.DataManager;
 import org.at15.mystories.data.model.NovelModel;
@@ -52,6 +52,9 @@ public class HomeFragment extends Fragment implements AllSugesstionAdapter.ItemL
 
     @Override
     public void onNovelClick(NovelModel novel) {
-
+        Intent intent = new Intent(requireActivity(), NovelDetailActivity.class);
+        intent.putExtra("title",novel.getName());
+        intent.putExtra("image_url",novel.getImageUrl());
+        startActivity(intent);
     }
 }

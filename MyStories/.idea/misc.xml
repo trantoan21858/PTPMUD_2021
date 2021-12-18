@@ -5,12 +5,18 @@
       <map>
         <entry key="..\:/Hoc/Nam4/PTPMUD/PTPMUD_2021/MyStories/app/src/main/res/drawable/splash_background.xml" value="0.1828125" />
         <entry key="..\:/Hoc/Nam4/PTPMUD/PTPMUD_2021/MyStories/app/src/main/res/layout/activity_list_novels.xml" value="0.13360507246376813" />
+        <entry key="..\:/Hoc/Nam4/PTPMUD/PTPMUD_2021/MyStories/app/src/main/res/layout/activity_novel_detail.xml" value="0.12864583333333332" />
+        <entry key="..\:/Hoc/Nam4/PTPMUD/PTPMUD_2021/MyStories/app/src/main/res/layout/activity_reading.xml" value="0.20416666666666666" />
         <entry key="..\:/Hoc/Nam4/PTPMUD/PTPMUD_2021/MyStories/app/src/main/res/layout/category_card.xml" value="0.210221793635487" />
         <entry key="..\:/Hoc/Nam4/PTPMUD/PTPMUD_2021/MyStories/app/src/main/res/layout/fragment_category.xml" value="0.13134057971014493" />
         <entry key="..\:/Hoc/Nam4/PTPMUD/PTPMUD_2021/MyStories/app/src/main/res/layout/fragment_home.xml" value="0.13134057971014493" />
+        <entry key="..\:/Hoc/Nam4/PTPMUD/PTPMUD_2021/MyStories/app/src/main/res/layout/fragment_intro.xml" value="0.20416666666666666" />
+        <entry key="..\:/Hoc/Nam4/PTPMUD/PTPMUD_2021/MyStories/app/src/main/res/layout/fragment_list_chapter_list.xml" value="0.19010416666666666" />
+        <entry key="..\:/Hoc/Nam4/PTPMUD/PTPMUD_2021/MyStories/app/src/main/res/layout/fragment_list_novel.xml" value="0.1598731884057971" />
         <entry key="..\:/Hoc/Nam4/PTPMUD/PTPMUD_2021/MyStories/app/src/main/res/layout/fragment_personal.xml" value="0.1" />
         <entry key="..\:/Hoc/Nam4/PTPMUD/PTPMUD_2021/MyStories/app/src/main/res/layout/fragment_search.xml" value="0.13134057971014493" />
         <entry key="..\:/Hoc/Nam4/PTPMUD/PTPMUD_2021/MyStories/app/src/main/res/layout/novel_card.xml" value="0.75" />
+        <entry key="..\:/Hoc/Nam4/PTPMUD/PTPMUD_2021/MyStories/app/src/main/res/layout/novel_detail_fragment.xml" value="0.11458333333333333" />
         <entry key="..\:/Hoc/Nam4/PTPMUD/PTPMUD_2021/MyStories/app/src/main/res/layout/novel_item.xml" value="0.1" />
         <entry key="..\:/Hoc/Nam4/PTPMUD/PTPMUD_2021/MyStories/app/src/main/res/layout/sugesstion_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Hoc/Nam4/PTPMUD/PTPMUD_2021/MyStories/app/src/main/res/menu/bottom_nav_menu.xml" value="0.22" />

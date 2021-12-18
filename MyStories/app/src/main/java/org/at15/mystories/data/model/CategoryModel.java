@@ -1,12 +1,28 @@
 package org.at15.mystories.data.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class CategoryModel {
 
+    @Expose
+    @SerializedName("id")
+    private String mId;
+
+    @Expose
+    @SerializedName("name")
     private String mTitle;
+
+    @Expose
+    @SerializedName("description")
     private String mDescription;
+
+    @Expose
+    @SerializedName("image_url")
     private String mImageUrl;
 
-    public CategoryModel(String title, String description, String imageUrl) {
+    public CategoryModel(String id, String title, String description, String imageUrl) {
+        this.mId = id;
         this.mTitle = title;
         this.mDescription = description;
         this.mImageUrl = imageUrl;
@@ -30,5 +46,9 @@ public class CategoryModel {
 
     public String getImageUrl() {
         return mImageUrl;
+    }
+
+    public String getId() {
+        return mId;
     }
 }

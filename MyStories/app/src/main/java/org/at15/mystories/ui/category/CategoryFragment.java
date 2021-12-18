@@ -8,19 +8,14 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.at15.mystories.ListNovelsActivity;
+import org.at15.mystories.ui.list_novels.ListNovelsActivity;
 import org.at15.mystories.R;
 import org.at15.mystories.data.DataManager;
 import org.at15.mystories.data.model.CategoryModel;
-import org.at15.mystories.ui.list_novels.ListNovelFragment;
-
-import java.util.List;
 
 public class CategoryFragment extends Fragment implements ListCategoryAdapter.ItemListener {
 
@@ -52,7 +47,7 @@ public class CategoryFragment extends Fragment implements ListCategoryAdapter.It
 
     @Override
     public void onClick(CategoryModel category) {
-        Intent intent = new Intent(requireContext(), ListNovelsActivity.class);
+        Intent intent = new Intent(requireActivity(), ListNovelsActivity.class);
         intent.putExtra("title",category.getTitle());
         startActivity(intent);
     }

@@ -44,9 +44,24 @@ public class PersonalFragment extends Fragment {
         viewPager.setAdapter(new PersonalViewPagerAdapter(this));
         TabLayout tabLayout = view.findViewById(R.id.tab_layout);
         new TabLayoutMediator(tabLayout, viewPager,
-                (tab, position) -> {
-                    tab.setIcon(R.drawable.ic_bookmark);
-                    tab.setText("Đang đọc");
+                new TabLayoutMediator.TabConfigurationStrategy() {
+                    @Override
+                    public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
+                        switch (position) {
+                            case 0:
+                                tab.setIcon(R.drawable.ic_bookmark);
+                                tab.setText("Đang đọc");
+                                break;
+                            case 1:
+                                tab.setIcon(R.drawable.ic_favorite_off);
+                                tab.setText("Yêu thích");
+                                break;
+                            case 2:
+                                tab.setIcon(R.drawable.ic_download);
+                                tab.setText("Đã tải");
+                                break;
+                        }
+                    }
                 }
         ).attach();
     }

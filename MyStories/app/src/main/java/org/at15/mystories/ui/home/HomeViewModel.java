@@ -10,8 +10,9 @@ import org.at15.mystories.data.repository.novels.NovelsRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-public class HomeViewModel extends ViewModel implements NovelsRepository.LoadNovelsCallback{
+public class HomeViewModel extends ViewModel implements NovelsRepository.SuggestNovelHomepage{
 
     public MutableLiveData<List<AllSugesstionAdapter.SuggesstionGroup>> getData() {
         return mData;
@@ -31,17 +32,16 @@ public class HomeViewModel extends ViewModel implements NovelsRepository.LoadNov
 
     }
 
-    @Override
-    public void onLoadSuccess(List<NovelModel> novels) {
-        List<AllSugesstionAdapter.SuggesstionGroup> data = new ArrayList<>();
-        data.add(new AllSugesstionAdapter.SuggesstionGroup("Truyện mới", novels));
-        data.add(new AllSugesstionAdapter.SuggesstionGroup("Truyện hot", novels));
-        data.add(new AllSugesstionAdapter.SuggesstionGroup("Truyện full", novels));
-        data.add(new AllSugesstionAdapter.SuggesstionGroup("Truyện mới cập nhật", novels));
-        mData.postValue(data);
+    public void loadSuggestions() {
+        mRepository.getSuggestNovelsHomepage(this);
     }
 
-    public void loadSuggestions() {
-        mRepository.getNovels(this, new NovelFilter());
+    @Override
+    public void onLoadSuccess(Map<String, List<NovelModel>> suggest) {
+        List<AllSugesstionAdapter.SuggesstionGroup> data = new ArrayList<>();
+        for(String key : suggest.keySet()) {
+            data.add(new AllSugesstionAdapter.SuggesstionGroup(key, suggest.get(key)));
+        }
+        mData.postValue(data);
     }
 }

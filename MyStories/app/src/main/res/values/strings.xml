@@ -4,4 +4,7 @@
     <string name="category">Category</string>
     <string name="personal">Personal</string>
     <string name="search">Search</string>
+    <string name="novel_detail">Novel detail</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

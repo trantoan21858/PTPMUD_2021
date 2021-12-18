@@ -1,4 +1,4 @@
-package org.at15.mystories;
+package org.at15.mystories.ui;
 
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -15,6 +15,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
+import org.at15.mystories.R;
 
 public class MainActivity extends AppCompatActivity {
 

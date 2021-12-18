@@ -7,6 +7,10 @@ public class NovelFilter {
     private int mMinChapter = 0;
     private int mMaxChapter = 1000000;
 
+    static NovelFilter noFilter() {
+        return new NovelFilter();
+    }
+
     public NovelFilter() {
 
     }

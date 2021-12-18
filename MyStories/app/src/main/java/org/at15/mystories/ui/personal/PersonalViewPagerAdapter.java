@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import org.at15.mystories.ui.list_novels.ListNovelFragment;
+import org.at15.mystories.ui.category.CategoryFragment;
 
 public class PersonalViewPagerAdapter extends FragmentStateAdapter {
 
@@ -15,7 +15,7 @@ public class PersonalViewPagerAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        return ListNovelFragment.newInstance();
+        return new CategoryFragment();
     }
 
     @Override

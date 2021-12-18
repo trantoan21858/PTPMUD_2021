@@ -19,6 +19,8 @@ public class AllSugesstionAdapter extends RecyclerView.Adapter<AllSugesstionAdap
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
+        private View mHeaderTitle;
+
         private TextView mTitleView;
 
         private RecyclerView mListDataView;
@@ -27,6 +29,7 @@ public class AllSugesstionAdapter extends RecyclerView.Adapter<AllSugesstionAdap
             super(itemView);
             mTitleView = itemView.findViewById(R.id.title);
             mListDataView = itemView.findViewById(R.id.list_suggestion);
+            mHeaderTitle = itemView.findViewById(R.id.header_title);
         }
 
         public TextView getTitleView() {
@@ -35,6 +38,10 @@ public class AllSugesstionAdapter extends RecyclerView.Adapter<AllSugesstionAdap
 
         public RecyclerView getListDataView() {
             return mListDataView;
+        }
+
+        public View getHeaderTitle() {
+            return mHeaderTitle;
         }
     }
 
@@ -84,7 +91,7 @@ public class AllSugesstionAdapter extends RecyclerView.Adapter<AllSugesstionAdap
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.mTitleView.setText(mListData.get(position).getTitle());
-        holder.mTitleView.setOnClickListener(new View.OnClickListener() {
+        holder.getHeaderTitle().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mCallback.onGroupClick(mListData.get(holder.getAdapterPosition()));
